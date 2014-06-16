@@ -11,6 +11,6 @@ api = TwitterAPI('CREDENTIALS',
                  'HERE')
 
 while True:
-    time.sleep(36)
+    time.sleep(limit)
     r = api.request('statuses/update', {'status':number})
     number += 1
