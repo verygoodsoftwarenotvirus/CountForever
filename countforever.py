@@ -1,5 +1,6 @@
 from TwitterAPI import TwitterAPI
 from num2words import num2words
+import requests
 import time
 
 limit = 36
@@ -14,4 +15,4 @@ while True:
     	number += 1
     	time.sleep(limit)
     except requests.exceptions.Timeout:
-    	time.sleep(1800)  # half an hour in seconds
+    	time.sleep(600)  # ten minutes in seconds
