@@ -16,4 +16,8 @@ while True:
     	number += 1
     	time.sleep(limit)
     except requests.exceptions.Timeout:
+        """
+        Sometimes DigitalOcean works late hours and spills coffee on its pants.
+        When this happens, it needs about ten minutes to go home and change.
+        """
     	time.sleep(ten_minutes)
