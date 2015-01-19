@@ -1,23 +1,23 @@
 from TwitterAPI import TwitterAPI
 from num2words import num2words
-import requests
-import time
+from time import sleep
+from requests import exceptions
 
 limit = 36  # 100 tweets per hour
 ten_minutes = 600  # in seconds
 number = 1
 
-api = TwitterAPI('CREDS', 'GO', 'RIGHT', 'HERE')
+api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 
 while True:
     try:
         tweet = "{}{}".format(num2words(number).replace(" and", ""), "...ah ah ah!")
         api.request('statuses/update', {'status': tweet})
         number += 1
-        time.sleep(limit)
-    except requests.exceptions.Timeout:
+        sleep(limit)
+    except exceptions.Timeout:
         """
         Sometimes DigitalOcean works late hours and spills coffee on its pants.
         When this happens, it needs about ten minutes to go home and change.
         """
-        time.sleep(ten_minutes)
+        sleep(ten_minutes)
