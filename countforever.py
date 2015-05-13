@@ -5,7 +5,6 @@ from time import sleep
 limit = 36  # 100 tweets per hour
 ten_minutes = 600  # in seconds
 number = 1
-
 api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 
 while True:
@@ -15,8 +14,4 @@ while True:
         number += 1
         sleep(limit)
     except:
-        """
-        Sometimes DigitalOcean works late hours and spills coffee on its pants.
-        When this happens, it needs about ten minutes to go home and change.
-        """
         sleep(ten_minutes)
